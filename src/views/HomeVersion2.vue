@@ -2,12 +2,13 @@
   <TheNav />
   <section class="mt-5">
     <Carousel>
-      <Slide v-for="slide in 2" :key="slide">
+      <Slide v-for="(slide, i) in slidehome" :key="i">
         <div class="carousel__item carousel__item-home">
           <div class="home-slider">
             <img
+              :id="slide.idimg"
               class="slider-img"
-              src="../assets/slider_01_4ea6d366-5a77-425c-a461-43a6dfb627fa.webp"
+              :src="require(`../assets/${slide.img}`)"
             />
             <div class="home-slider-popup">
               <div class="container carousel-container">
@@ -33,23 +34,6 @@
       </template>
     </Carousel>
   </section>
-  <section class="mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6" v-for="(index, i) in 3" :key="i">
-          <div class="free-shipping">
-            <fa class="free-icon-car" icon="car" />
-            <div>
-              <h4 class="mb-2">Free Shipping</h4>
-              <p class="free-par">
-                Contrary to popular belief, Lorem Ipsum is random text.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section class="mt-5 mb-5">
     <div class="container">
       <div class="row">
@@ -61,12 +45,20 @@
       </div>
     </div>
   </section>
-  <div class="title-home-elment">
-    <div class="title-home">
-      <h2>NEW ARRIVAL</h2>
-    </div>
+  <div class="card-home-versontwo">
+    <h5 @click="variablesize" class="color-item">ONSALE</h5>
+    <h5 @click="variablesizetwo">NEW ARRIVALS</h5>
+    <h5 @click="variablesizethree">FEATURED</h5>
   </div>
-  <CardHome />
+  <div class="card-show-1">
+    <CardHomeTwo />
+  </div>
+  <div class="card-show-2">
+    <CardHome />
+  </div>
+  <div class="card-show-3">
+    <CardHomeThree />
+  </div>
   <section class="mt-5 testimonial">
     <TestHome />
   </section>
@@ -155,12 +147,24 @@ import TheNav from "@/components/NavComponent.vue";
 import CardHome from "@/components/CardHome.vue";
 import TestHome from "@/components/TestHome.vue";
 import FotterComponent from "@/components/FotterComponent.vue";
+import CardHomeTwo from "@/components/CardHomeTwo.vue";
+import CardHomeThree from "@/components/CardHomeThree.vue";
 import $ from "jquery";
 import "vue3-carousel/dist/carousel.css";
 
 export default {
   data() {
     return {
+      slidehome: [
+        {
+          img: "slider_02.1_92bba09f.webp",
+          idimg: "slider-setinterval",
+        },
+        {
+          img: "slider_02_ae4a6e63.webp",
+          idimg: "slider-setinterval-two",
+        },
+      ],
       slideimgarray: [
         {
           img: "b_logo_06.webp",
@@ -250,10 +254,22 @@ export default {
     FotterComponent,
     Carousel,
     Slide,
+    CardHomeTwo,
+    CardHomeThree,
     Pagination,
     Navigation,
   },
   mounted() {
+    setInterval(function () {
+      $("#slider-setinterval").prop(
+        "src",
+        "http://localhost:8080/img/slider_02_ae4a6e63.978f3bf9.webp"
+      );
+      $("#slider-setinterval-two").prop(
+        "src",
+        "http://localhost:8080/img/slider_02.1_92bba09f.ff1dfa2a.webp"
+      );
+    }, 3500);
     setInterval(function () {
       $(".carousel-container").fadeIn(1000);
     }, 1000);
@@ -277,6 +293,27 @@ export default {
     });
   },
   methods: {
+    variablesize(e) {
+      $(e.target).addClass("color-item");
+      $(e.target).siblings().removeClass("color-item");
+      $(".card-show-2").fadeOut();
+      $(".card-show-1").fadeIn();
+      $(".card-show-3").fadeOut();
+    },
+    variablesizetwo(e) {
+      $(e.target).addClass("color-item");
+      $(e.target).siblings().removeClass("color-item");
+      $(".card-show-2").fadeIn();
+      $(".card-show-1").fadeOut();
+      $(".card-show-3").fadeOut();
+    },
+    variablesizethree(e) {
+      $(e.target).addClass("color-item");
+      $(e.target).siblings().removeClass("color-item");
+      $(".card-show-2").fadeOut();
+      $(".card-show-3").fadeIn();
+    },
+
     showsetting(e) {
       $(e.target).parent().hide();
       $(e.target).parent().siblings(".home-icon-gear").show();
@@ -304,14 +341,6 @@ export default {
     hidecheck(e) {
       $(e.target).hide();
       $(".home-icon-heart").show();
-    },
-    buttonscrolltop() {
-      $("html, body").animate(
-        {
-          scrollTop: 0,
-        },
-        200
-      );
     },
   },
 };

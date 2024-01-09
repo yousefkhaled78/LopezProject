@@ -1,163 +1,122 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import AboutView from "../views/AboutView";
-import MyForms from "../views/MyForms.vue";
-import FormOne from "../views/FormOne.vue";
-import FormTwo from "../views/FormTwo.vue";
-import FormThree from "../views/FormThree.vue";
-import MonthlyPackages from "../views/MonthlyPackages.vue";
-import PayingOff from "../views/PayingOff";
-import AddCard from "../views/AddCard.vue";
-import MyRequests from "../views/MyRequests.vue";
-import OrderDetails from "../views/OrderDetails.vue";
-import MyAccount from "../views/MyAccount.vue";
-import EditProfile from "../views/EditProfile.vue";
-import ConnectUs from "../views/ConnectUs.vue";
-import MyPortfolio from "../views/MyPortfolio.vue";
-import AddPortfolio from "../views/AddPortfolio.vue";
-import DoneActive from "@/views/DoneActive.vue";
-import SaveMap from "@/views/SaveMap.vue";
-import ChooseLocation from "@/views/ChooseLocation.vue";
-import AddLocation from "@/views/AddLocation.vue";
-import TheGoll from "@/views/TheGoll.vue";
-import MapContent from "@/views/MapContent.vue";
-import MyInhert from "@/views/MyInhert.vue";
-import MyParent from "@/views/MyParent.vue";
-import MyParenttwo from "@/views/MyParenttwo";
-import MyNotifications from "@/views/MyNotifications";
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "home",
     component: HomeView,
   },
   {
     path: "/about",
     name: "about",
-    component: AboutView,
+    component: () => import("../views/AboutView.vue"),
   },
   {
-    path: "/",
-    name: "myforms",
-    component: MyForms,
+    path: "/BlogContent",
+    name: "BlogContent",
+    component: () => import("../views/BlogContent.vue"),
   },
   {
-    path: "/formone",
-    name: "formone",
-    component: FormOne,
+    path: "/BlogtwoContent",
+    name: "BlogtwoContent",
+    component: () => import("../views/BlogtwoContent.vue"),
   },
   {
-    path: "/formtwo",
-    name: "formtwo",
-    component: FormTwo,
+    path: "/BlogTemporibus",
+    name: "BlogTemporibus",
+    component: () => import("../views/BlogTemporibus.vue"),
   },
   {
-    path: "/formthree",
-    name: "formthree",
-    component: FormThree,
+    path: "/StandardBlog",
+    name: "StandardBlog",
+    component: () => import("../views/StandardBlog.vue"),
   },
   {
-    path: "/monthlypackages",
-    name: "monthlypackages",
-    component: MonthlyPackages,
+    path: "/BlogTags",
+    name: "BlogTags",
+    component: () => import("../views/BlogTags.vue"),
   },
   {
-    path: "/payingoff",
-    name: "payingoff",
-    component: PayingOff,
+    path: "/ProductContent",
+    name: "ProductContent",
+    component: () => import("../views/ProductContent.vue"),
   },
   {
-    path: "/addcard",
-    name: "addcard",
-    component: AddCard,
+    path: "/CheakoutLopez",
+    name: "CheakoutLopez",
+    component: () => import("../views/CheakoutLopez.vue"),
   },
   {
-    path: "/myrequests",
-    name: "myrequests",
-    component: MyRequests,
+    path: "/AcountLpeaz",
+    name: "AcountLpeaz",
+    component: () => import("../views/AcountLpeaz.vue"),
   },
   {
-    path: "/orderdetails",
-    name: "orderdetails",
-    component: OrderDetails,
+    path: "/SizeChart",
+    name: "SizeChart",
+    component: () => import("../views/SizeChart.vue"),
   },
   {
-    path: "/myaccount",
-    name: "myaccount",
-    component: MyAccount,
+    path: "/ShippingPolicy",
+    name: "ShippingPolicy",
+    component: () => import("../views/ShippingPolicy.vue"),
   },
   {
-    path: "/editprofile",
-    name: "editprofile",
-    component: EditProfile,
+    path: "/WishlistLopez",
+    name: "WishlistLopez",
+    component: () => import("../views/WishlistLopez.vue"),
   },
   {
-    path: "/connectus",
-    name: "connectus",
-    component: ConnectUs,
+    path: "/ClusterEarrings",
+    name: "ClusterEarrings",
+    component: () => import("../views/ClusterEarrings.vue"),
   },
   {
-    path: "/myportfolio",
-    name: "myportfolio",
-    component: MyPortfolio,
+    path: "/BridalSet",
+    name: "BridalSet",
+    component: () => import("../views/BridalSet.vue"),
   },
   {
-    path: "/addportfolio",
-    name: "addportfolio",
-    component: AddPortfolio,
+    path: "/AffiliateProduct",
+    name: "AffiliateProduct",
+    component: () => import("../views/AffiliateProduct.vue"),
   },
   {
-    path: "/doneactive",
-    name: "doneactive",
-    component: DoneActive,
+    path: "/VariableProduct",
+    name: "VariableProduct",
+    component: () => import("../views/VariableProduct.vue"),
   },
   {
-    path: "/savemap",
-    name: "savemap",
-    component: SaveMap,
+    path: "/SoldoutProduct",
+    name: "SoldoutProduct",
+    component: () => import("../views/SoldoutProduct.vue"),
   },
   {
-    path: "/chooselocation",
-    name: "chooselocation",
-    component: ChooseLocation,
+    path: "/ShoppingCart",
+    name: "ShoppingCart",
+    component: () => import("../views/ShoppingCart.vue"),
   },
   {
-    path: "/addlocation",
-    name: "addlocation",
-    component: AddLocation,
+    path: "/TopsTees",
+    name: "TopsTees",
+    component: () => import("../views/TopsTees.vue"),
   },
   {
-    path: "/thegoll",
-    name: "thegoll",
-    component: TheGoll,
+    path: "/ContactUs",
+    name: "ContactUs",
+    component: () => import("../views/ContactUs.vue"),
   },
   {
-    path: "/mapcontent",
-    name: "mapcontent",
-    component: MapContent,
+    path: "/HomeVersion2",
+    name: "HomeVersion2",
+    component: () => import("../views/HomeVersion2.vue"),
   },
   {
-    path: "/myinhert",
-    name: "myinhert",
-    component: MyInhert,
-  },
-  {
-    path: "/myparent",
-    name: "myparent",
-    component: MyParent,
-  },
-  {
-    path: "/myparenttwo",
-    name: "myparenttwo",
-    component: MyParenttwo,
-  },
-  {
-    path: "/mynotifications",
-    name: "mynotifications",
-    component: MyNotifications,
+    path: "/FeaturedFillter",
+    name: "FeaturedFillter",
+    component: () => import("../views/FeaturedFillter.vue"),
   },
 ];
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
